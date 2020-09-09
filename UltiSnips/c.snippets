@@ -1,0 +1,193 @@
+# List of personal snippets for c coding style
+# Bases on EPITA coding style.
+
+snippet def "#ifndef ... #define ... #endif" !b
+#ifndef ${1/([A-Za-z0-9_]+).*/$1/}
+# define ${1:SYMBOL} ${2:value}
+#endif /* !$1 */
+endsnippet
+
+snippet #if "#if #endif" !b
+#if ${1:0}
+${VISUAL:code}$0
+#endif /* $1 */
+endsnippet
+
+snippet inc "#include local header (inc)" !b
+#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+endsnippet
+
+snippet Inc "#include <> (Inc)" !b
+#include <${1:.h}>
+endsnippet
+
+snippet main "main(int argc, char const *argv[])" !b
+int main(int argc, char const *argv[])
+{
+	${0:/* code */}
+	return (0);
+}
+endsnippet
+
+snippet for "for int loop" !b
+for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet once "Include header once only guard" !b
+#ifndef ${1:`!p
+if not snip.c:
+	snip.rv = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper() + "_"
+else:
+    snip.rv = snip.c`}
+# define $1
+
+${0}
+
+#endif /* !$1 */
+endsnippet
+
+snippet wh "while .." !b
+while ${1:/* condition */}
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet do "do...while loop" !b
+do
+{
+	${0:/* code */}
+} while(${1:/* condition */});
+endsnippet
+
+snippet if "if .. (if)" !b
+if (${1:/* condition */})
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet el "else ..." !b
+else {
+	${0:/* code */}
+}
+endsnippet
+
+snippet ife "if .. else .." !b
+if (${1:/* condition */})
+{
+	${2:/* code */}
+}
+else
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet elif "else if ..." !b
+else if (${1:/* condition */})
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet t "ternary ? a : b" !b
+${1:/* condition */} ? ${2:a} : ${3:b}
+endsnippet
+
+snippet ret "return ...;" !b
+return ${0:value(s)};
+endsnippet
+
+snippet st "struct" !b
+struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`}
+{
+	${0:/* data */}
+};
+endsnippet
+
+snippet en "enum" !b
+enum ${1:name}
+{
+	${0:/* data */}
+};
+endsnippet
+
+snippet td "typedef" !b
+typedef ${1:int} ${2:MyCustomType};
+endsnippet
+
+snippet tds "typedef struct" !b
+typedef struct
+{
+	${0:/* data */}
+} ${1:name};
+endsnippet
+
+snippet tde "typedef enum" !b
+typedef enum
+{
+	${0:/* data */}
+} ${1:name};
+endsnippet
+
+snippet printf "printf .. (printf)" !b
+printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet fprintf "fprintf ..." !b
+fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet switch "switch ..." !b
+switch(${1:/* variable */})
+{
+	case ${2:/* variable case */}:
+		${3:/* code */}
+		${4:break;}$5
+	default:
+		$0
+}
+endsnippet
+
+snippet case "case ..." !b
+case ${1:/* variable case */}:
+	${2:/* code */}
+	${3:break;}$0
+endsnippet
+
+snippet ( "parenthese (...)" !b
+(${1:/* code */})$0
+endsnippet
+
+snippet " "text..." !b
+"${1:text}"$0
+endsnippet
+
+snippet ' "'char'" !b
+'${1:char}'$0
+endsnippet
+
+snippet [ "[...]" !b
+[${1:in}]$0
+endsnippet
+
+snippet foo "int foo(void)" !b
+${2:int} ${1:foo}(${3:void})
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet food "foo declaration" :b
+${2:int} ${1:foo}(${3:void});
+endsnippet
+
+snippet ufoo "using foo()" !b
+${1:foo}(${2:void});
+endsnippet
+
+# vim:ft=snippets:
