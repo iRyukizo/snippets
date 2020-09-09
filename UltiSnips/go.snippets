@@ -1,0 +1,40 @@
+# List of personnal go snippets
+
+snippet package "package ..." !b
+package ${1:main}
+$0
+endsnippet
+
+snippet import "import single package" !b
+import "${1:package}"
+$0
+endsnippet
+
+snippet imports "import packages" !b
+import (
+	"${1:package1}"
+	"${2:package2}"
+)
+$0
+endsnippet
+
+
+# Lazy snippets
+
+snippet ( "parenthese (...)" !b
+(${1:/* code */})$0
+endsnippet
+
+snippet " "text..." !b
+"${1:text}"$0
+endsnippet
+
+snippet ' "'char'" !b
+'${1:char}'$0
+endsnippet
+
+snippet [ "[...]" !b
+[${1:in}]$0
+endsnippet
+
+# vim:ft=snippets:
