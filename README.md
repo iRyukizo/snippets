@@ -12,7 +12,7 @@ Documentation will come.
 ```bash
 git clone https://github.com/iRyukizo/snippets.git
 cd snippets/
-./install.sh
+./install.sh install
 ```
 
 --------------------
