@@ -3,7 +3,7 @@
 ### About
 This is a collection of snippets for personnal use.
 
-It is meant to be used with [**UltiSnips**]((https://github.com/SirVer/ultisnips), not SnipMates.
+It is meant to be used with [**UltiSnips**](https://github.com/SirVer/ultisnips), not SnipMates.
 
 Documentation will come.
 
