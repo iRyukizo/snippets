@@ -58,7 +58,7 @@ ${0}
 endsnippet
 
 snippet wh "while .." !b
-while ${1:/* condition */}
+while (${1:/* condition */})
 {
 	${0:/* code */}
 }
@@ -190,12 +190,18 @@ ${2:int} ${1:foo}(${3:void})
 }
 endsnippet
 
-snippet food "foo declaration" :b
+snippet food "foo declaration" !b
 ${2:int} ${1:foo}(${3:void});
 endsnippet
 
 snippet ufoo "using foo()" !b
 ${1:foo}(${2:void});
+endsnippet
+
+snippet /* "comment multiline" !b
+/*
+** ${1:Must do}
+*/
 endsnippet
 
 # vim:ft=snippets:
