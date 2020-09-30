@@ -151,7 +151,7 @@ fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%
 endsnippet
 
 snippet switch "switch ..." !b
-switch(${1:/* variable */})
+switch (${1:/* variable */})
 {
 case ${2:/* variable case */}:
 	${3:/* code */}
