@@ -44,6 +44,12 @@ for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
 }
 endsnippet
 
+snippet forr "for empty loop" !b
+for (${1};${2};${3})
+{
+	${0:/* code */}
+}
+endsnippet
 
 snippet once "Include header once only guard" !b
 #ifndef ${1:`!p
