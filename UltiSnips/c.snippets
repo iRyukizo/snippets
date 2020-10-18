@@ -191,7 +191,7 @@ endsnippet
 
 snippet { "{ ... }" !b
 {
-    ${1:/* code */}
+	${1:/* code */}
 }
 endsnippet
 
@@ -230,8 +230,7 @@ endsnippet
 
 snippet todo "comment TODO" !b
 /*
-** ${1:TODO:} <`!v strftime("%Y-%m-%d")`${2:, `!v g:snips_author`}>
-** $0
+** ${1:TODO}: ${2:<${3:`!v strftime("%Y-%m-%d %H:%M")`}${4:, `!v g:snips_author`}>}$0
 */
 endsnippet
 
