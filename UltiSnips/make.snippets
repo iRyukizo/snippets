@@ -1,0 +1,57 @@
+global !p
+import os
+def find(here):
+    res = os.popen("find * -maxdepth 1 -type f -name '"+here+"*.c' | tr '\n' ' ' | awk '{$1=$1};1'")
+    return res.read().rstrip('\n')
+endglobal
+
+snippet src "SRC" !b
+${1:SRC}= ${2:`!p snip.rv = find("")`}$0
+endsnippet
+
+snippet "ls" "find all *.c files" r
+`!p snip.rv = find("")`
+endsnippet
+
+snippet "ls (\w+)" "find desired files with extension '.c'" r
+`!p snip.rv = find(match.group(1))`
+endsnippet
+
+snippet obj "OBJ" !b
+${1:OBJ}= ${${2:SRC}:.c=.o}$0
+endsnippet
+
+snippet bin "BIN" !b
+${1:BIN}= ${2:binary}$0
+endsnippet
+
+snippet lib "library" !b
+${1:LIB}= ${2:library.a}$0
+endsnippet
+
+snippet cc "CC and CFLAGS" !b
+CC=gcc
+CFLAGS= -fsanitize=address -Wall -Wextra -Werror -pedantic -std=c99
+$0
+endsnippet
+
+snippet clean "clean rule" !b
+clean:
+	${1:${RM}} ${${2:OBJ}} ${${3:BIN}}$0
+endsnippet
+
+snippet cleanc "clean rule with comments" !b
+clean: ## Clean all made files
+	${1:${RM}} ${${2:OBJ}} ${${3:BIN}}$0
+endsnippet
+
+snippet rule "create a basic rule" !b
+${1:${BIN}}: ${2:${OBJ}}
+	${3:${CC}} $2 -o $1$0
+endsnippet
+
+snippet all "all rule" !b
+${1:all}: ${2:${BIN}}$0
+endsnippet
+
+# vim:ft=snippets:
