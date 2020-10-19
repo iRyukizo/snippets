@@ -41,7 +41,7 @@ clean:
 endsnippet
 
 snippet cleanc "clean rule with comments" !b
-clean: ## Clean all made files
+clean: ## clean ## Clean all made files
 	${1:${RM}} ${${2:OBJ}} ${${3:BIN}}$0
 endsnippet
 
@@ -52,6 +52,15 @@ endsnippet
 
 snippet all "all rule" !b
 ${1:all}: ${2:${BIN}}$0
+endsnippet
+
+snippet help "help" !b
+help: ## help ## Prints help for targets with comments
+	@cat $(MAKEFILE_LIST) | grep -E '\\$$?\{?[a-zA-Z_-]\}?+:.*?##' | awk 'BEGIN {FS = "## "}; {printf "\033[36m%-30s\033[0m %s\n", $\$2, $\$3}'
+endsnippet
+
+snippet he "he" i
+## ${1:Name} ## ${2:Description of the rules}
 endsnippet
 
 # vim:ft=snippets:
