@@ -173,19 +173,19 @@ case ${1:/* variable case */}:
 	${3:break;}$0
 endsnippet
 
-snippet ( "parenthese (...)" !b
+snippet ( "parenthese (...)" i
 (${1:/* code */})$0
 endsnippet
 
-snippet " "text..." !b
+snippet " "text..." i
 "${1:text}"$0
 endsnippet
 
-snippet ' "'char'" !b
+snippet ' "'char'" i
 '${1:char}'$0
 endsnippet
 
-snippet [ "[...]" !b
+snippet [ "[...]" i
 [${1:in}]$0
 endsnippet
 
@@ -206,7 +206,7 @@ snippet food "foo declaration" !b
 ${2:int} ${1:foo}(${3:void});
 endsnippet
 
-snippet ufoo "using foo()" !b
+snippet ufoo "using foo()" i
 ${1:foo}(${2:void});
 endsnippet
 
