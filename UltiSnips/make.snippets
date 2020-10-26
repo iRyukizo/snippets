@@ -30,8 +30,8 @@ ${1:LIB}= ${2:library.a}$0
 endsnippet
 
 snippet cc "CC and CFLAGS" !b
-CC=gcc
-CFLAGS= -fsanitize=address -Wall -Wextra -Werror -pedantic -std=c99
+CC=gcc -fsanitize=address
+CFLAGS= -Wall -Wextra -Werror -pedantic -std=c99
 $0
 endsnippet
 
