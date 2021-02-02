@@ -19,8 +19,8 @@ endsnippet
 snippet mainv "main()" !b
 int main()
 {
-    ${0:/* code */}
-    return 0;
+	${0:/* code */}
+	return 0;
 }
 endsnippet
 
@@ -58,6 +58,10 @@ snippet vector "std::vector (v)"
 std::vector<${1:char}> v$0;
 endsnippet
 
+snippet pair "std::pair<T1, T2>" !b
+std::pair<${1:T1}, ${2:T2}>$0
+endsnippet
+
 snippet str "std::string" !b
 std::string$0
 endsnippet
@@ -67,7 +71,7 @@ template <typename ${1:T}>
 endsnippet
 
 snippet cout "std::cout << token << std::endl;" !b
-std::cout << ${1:token} << std::endl;
+std::cout << ${1:token} << '\n';
 endsnippet
 
 snippet cin "std::cin >> token;" !b
@@ -121,6 +125,13 @@ endsnippet
 
 snippet mu "mutable" !b
 mutable
+endsnippet
+
+snippet mfoo "member func" !b
+${4:void} ${1:`!p snip.rv = snip.basename.title() or "Class"`}::${2:foo}(${3:arguments})
+{
+	${0:/* code */}
+}
 endsnippet
 
 # vim:ft=snippets:
