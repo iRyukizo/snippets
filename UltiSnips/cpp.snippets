@@ -58,6 +58,10 @@ snippet vector "std::vector (v)"
 std::vector<${1:char}> v$0;
 endsnippet
 
+snippet str "std::string" !b
+std::string$0
+endsnippet
+
 snippet tp "template <typename ..> (template)"
 template <typename ${1:T}>
 endsnippet
@@ -89,7 +93,7 @@ try
 {
 	${2:/* code */}
 }
-catch(${1:const std::exception e})
+catch(${1:const std::exception &e})
 {
 	${0:/* error handling */}
 }
