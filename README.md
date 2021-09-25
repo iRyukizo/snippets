@@ -9,10 +9,11 @@ Documentation will come.
 
 ------------------------
 ### Installation
-```bash
-git clone https://github.com/iRyukizo/snippets.git
-cd snippets/
-./install.sh install
-```
-
+snippets follows the standard runtime path structure, it can be installed with plugin-managers.
+- Pathogen
+  - `git clone https://github.com/iryukizo/snippets ~/.vim/bundle/snippets`
+- Vundle
+  - `Plugin 'iryukizo/snippets'`
+- Vim-plug
+  - `Plug 'iryukizo/snippets'`
 --------------------
