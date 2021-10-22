@@ -71,11 +71,15 @@ template <typename ${1:T}>
 endsnippet
 
 snippet cout "std::cout << token << std::endl;" !b
-std::cout << ${1:token} << '\n';
+std::cout << ${1:token}${2: << '\n'};$0
 endsnippet
 
 snippet cin "std::cin >> token;" !b
 std::cin >> ${1:token};
+endsnippet
+
+snippet cerr "std::cerr << error << std::endl" !b
+std::cerr << ${1:error}${2: << '\n'};$0
 endsnippet
 
 snippet iter "iterator" !b
@@ -129,6 +133,20 @@ endsnippet
 
 snippet mfoo "member func" !b
 ${4:void} ${1:`!p snip.rv = snip.basename.title() or "Class"`}::${2:foo}(${3:arguments})
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet TEST "gtest TEST" !b
+TEST(${1:TestSuiteName}, ${2:TestCaseName})
+{
+	${0:/* code */}
+}
+endsnippet
+
+snippet TEST_F "gtest TEST_F" !b
+TEST_F(${1:TestSuiteName}, ${2:TestCaseName})
 {
 	${0:/* code */}
 }
