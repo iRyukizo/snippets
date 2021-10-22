@@ -1,20 +1,5 @@
-global !p
-import os
-def find(here):
-    res = os.popen("find * -maxdepth 1 -type f -name '"+here+"*.c' | tr '\n' ' ' | awk '{$1=$1};1'")
-    return res.read().rstrip('\n')
-endglobal
-
 snippet src "SRC" !b
-${1:SRC}= ${2:`!p snip.rv = find("")`}$0
-endsnippet
-
-snippet "ls" "find all *.c files" r
-`!p snip.rv = find("")`
-endsnippet
-
-snippet "ls (\w+)" "find desired files with extension '.c'" r
-`!p snip.rv = find(match.group(1))`
+${1:SRC}= ${2:files}$0
 endsnippet
 
 snippet obj "OBJ" !b
@@ -30,9 +15,18 @@ ${1:LIB}= ${2:library.a}$0
 endsnippet
 
 snippet cc "CC and CFLAGS" !b
-CC=gcc -fsanitize=address
+CC=gcc ${0:-fsanitize=address}
 CFLAGS= -Wall -Wextra -Werror -pedantic -std=c99
 $0
+endsnippet
+
+snippet cxx "CXX and CFLAGS" !b
+CXX=g++
+CXXFLAGS= -Wall -Wextra -Werror -pedantic -std=c++17
+endsnippet
+
+snippet cpp "CPPFLAGS" !b
+CPPFLAGS= ${1:-Isrc/}$0
 endsnippet
 
 snippet clean "clean rule" !b
@@ -40,9 +34,8 @@ clean:
 	${1:${RM}} ${${2:OBJ}} ${${3:BIN}}$0
 endsnippet
 
-snippet cleanc "clean rule with comments" !b
-clean: ## clean ## Clean all made files
-	${1:${RM}} ${${2:OBJ}} ${${3:BIN}}$0
+snippet PH ".PHONY" !b
+.PHONY: ${1:all} ${2:clean} ${3:check}$0
 endsnippet
 
 snippet rule "create a basic rule" !b
@@ -52,15 +45,6 @@ endsnippet
 
 snippet all "all rule" !b
 ${1:all}: ${2:${BIN}}$0
-endsnippet
-
-snippet help "help" !b
-help: ## help ## Prints help for targets with comments
-	@cat $(MAKEFILE_LIST) | grep -E '\\$$?\{?[a-zA-Z_-]\}?+:.*?##' | awk 'BEGIN {FS = "## "}; {printf "\033[36m%-30s\033[0m %s\n", $\$2, $\$3}'
-endsnippet
-
-snippet he "he" i
-## ${1:Name} ## ${2:Description of the rules}
 endsnippet
 
 # vim:ft=snippets:
