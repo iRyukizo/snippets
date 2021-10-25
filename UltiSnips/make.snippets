@@ -3,7 +3,7 @@ ${1:SRC}= ${2:files}$0
 endsnippet
 
 snippet obj "OBJ" !b
-${1:OBJ}= ${${2:SRC}:.c=.o}$0
+${1:OBJ}= ${${2:SRC}:${3:.cc}=${4:.o}}$0
 endsnippet
 
 snippet bin "BIN" !b
