@@ -25,7 +25,7 @@ int main()
 endsnippet
 
 snippet fore "for element in range" !b
-for (${3:const }${4:auto} ${1:&elt} : ${2:range})
+for (${3:const }${4:auto&} ${1:elt} : ${2:range})
 {
 	${0:/* code */}
 }
@@ -101,7 +101,7 @@ try
 {
 	${2:/* code */}
 }
-catch(${1:const std::exception &e})
+catch(${1:const std::exception& e})
 {
 	${0:/* error handling */}
 }
