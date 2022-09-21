@@ -15,14 +15,13 @@ ${1:LIB}= ${2:library.a}$0
 endsnippet
 
 snippet cc "CC and CFLAGS" !b
-CC=gcc ${0:-fsanitize=address}
-CFLAGS= -Wall -Wextra -Werror -pedantic -std=c99
-$0
+CC=gcc
+CFLAGS= -Wall -Wextra -Werror -pedantic -std=c99 ${0:-fsanitize=address}
 endsnippet
 
 snippet cxx "CXX and CFLAGS" !b
 CXX=g++
-CXXFLAGS= -Wall -Wextra -Werror -pedantic -std=c++17
+CXXFLAGS= -Wall -Wextra -Werror -pedantic -std=c++20
 endsnippet
 
 snippet cpp "CPPFLAGS" !b
