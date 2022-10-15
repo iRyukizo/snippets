@@ -16,7 +16,8 @@ endsnippet
 
 snippet cc "CC and CFLAGS" !b
 CC=gcc
-CFLAGS= -Wall -Wextra -Werror -pedantic -std=c99 ${0:-fsanitize=address}
+CFLAGS= -Wall -Wextra -Werror -pedantic -std=c99${1: -fsanitize=address}${2: -g}${0: }
+LDFLAGS=$1
 endsnippet
 
 snippet cxx "CXX and CFLAGS" !b
