@@ -17,23 +17,20 @@ snippet Inc "#include <> (Inc)" !b
 endsnippet
 
 snippet mainv "main()" !b
-int main()
-{
+int main() {
 	${0:/* code */}
 	return 0;
 }
 endsnippet
 
 snippet fore "for element in range" !b
-for (${3:const }${4:auto&} ${1:elt} : ${2:range})
-{
+for (${3:const }${4:auto&} ${1:elt} : ${2:range}) {
 	${0:/* code */}
 }
 endsnippet
 
 snippet cl "class .. (class)" b
-class ${1:`!p snip.rv = snip.basename.title() or "Name"`}
-{
+class ${1:`!p snip.rv = snip.basename.title() or "Name"`} {
 public:
 	${1/(\w+).*/$1/}(${2:arguments});
 	virtual ~${1/(\w+).*/$1/}();
@@ -44,8 +41,7 @@ private:
 endsnippet
 
 snippet ns "namespace .. (namespace)"
-namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
-{
+namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`} {
 	${0:/* code */}
 }${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
 endsnippet
@@ -70,7 +66,7 @@ snippet tp "template <typename ..> (template)"
 template <typename ${1:T}>
 endsnippet
 
-snippet cout "std::cout << token << std::endl;" !b
+snippet cout "std::cout << token << '\n';" !b
 std::cout << ${1:token}${2: << '\n'};$0
 endsnippet
 
@@ -78,31 +74,27 @@ snippet cin "std::cin >> token;" !b
 std::cin >> ${1:token};
 endsnippet
 
-snippet cerr "std::cerr << error << std::endl" !b
+snippet cerr "std::cerr << error << '\n'" !b
 std::cerr << ${1:error}${2: << '\n'};$0
 endsnippet
 
 snippet iter "iterator" !b
-for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4)
-{
+for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {
 	${0:/* code */}
 }
 endsnippet
 
 snippet itera "auto iterator" !b
-for (auto ${1:i} = ${2:container}.begin(); $1 != $2.end(); ++$1)
-{
-	${0:std::cout << *$1 << std::endl;}
+for (auto ${1:i} = ${2:container}.begin(); $1 != $2.end(); ++$1) {
+	${0:std::cout << *$1 << '\n';}
 }
 endsnippet
 
 snippet try "try catch" !b
-try
-{
+try {
 	${2:/* code */}
 }
-catch(${1:const std::exception& e})
-{
+catch(${1:const std::exception& e}) {
 	${0:/* error handling */}
 }
 endsnippet
@@ -132,22 +124,19 @@ mutable
 endsnippet
 
 snippet mfoo "member func" !b
-${4:void} ${1:`!p snip.rv = snip.basename.title() or "Class"`}::${2:foo}(${3:arguments})
-{
+${4:void} ${1:`!p snip.rv = snip.basename.title() or "Class"`}::${2:foo}(${3:arguments}) {
 	${0:/* code */}
 }
 endsnippet
 
 snippet TEST "gtest TEST" !b
-TEST(${1:TestSuiteName}, ${2:TestCaseName})
-{
+TEST(${1:TestSuiteName}, ${2:TestCaseName}) {
 	${0:/* code */}
 }
 endsnippet
 
 snippet TEST_F "gtest TEST_F" !b
-TEST_F(${1:TestSuiteName}, ${2:TestCaseName})
-{
+TEST_F(${1:TestSuiteName}, ${2:TestCaseName}) {
 	${0:/* code */}
 }
 endsnippet
